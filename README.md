@@ -71,51 +71,51 @@ Now, Queue becomes empty, So, terminate these process of iteration.
 <hr>
 
 
-from collections import deque
-from collections import defaultdict
+from collections import deque<BR>
+from collections import defaultdict<BR>
 
 
 '''
-V E
-FOR EVERY EDGE
-U V
-7 9
-A B
-A C 
-A F
-C E
-C F
-C D
-D E 
-D G
-G F
+V E<BR>
+FOR EVERY EDGE<BR>
+U V<BR>
+7 9<BR>
+A B<BR>
+A C <BR>
+A F<BR>
+C E<BR>
+C F<BR>
+C D<BR>
+D E<BR> 
+D G<BR>
+G F<BR>
 '''
-def bfs(graph,start,visited,path):
-    queue = deque()
-    path.append(start)
-    queue.append(start)
-    visited[start] = True
-    while len(queue) != 0:
-        tmpnode = queue.popleft()
-        for neighbour in graph[tmpnode]:
-            if visited[neighbour] == False:
-                path.append(neighbour)
-                queue.append(neighbour)
-                visited[neighbour] = True
-    return path
+def bfs(graph,start,visited,path):<BR>
+    queue = deque()<BR>
+    path.append(start)<BR>
+    queue.append(start)<BR>
+    visited[start] = True<BR>
+    while len(queue) != 0:<BR>
+        tmpnode = queue.popleft()<BR>
+        for neighbour in graph[tmpnode]:<BR>
+            if visited[neighbour] == False:<BR>
+                path.append(neighbour)<BR>
+                queue.append(neighbour)<BR>
+                visited[neighbour] = True<BR>
+    return path<BR>
 
-graph = defaultdict(list)
-v,e = map(int,input().split())
-for i in range(e):
-    u,v = map(str,input().split())
-    graph[u].append(v)
-    graph[v].append(u)
+graph = defaultdict(list)<BR>
+v,e = map(int,input().split())<BR>
+for i in range(e):<BR>
+    u,v = map(str,input().split())<BR>
+    graph[u].append(v)<BR>
+    graph[v].append(u)<BR>
 
-start = '0'
-path = []
-visited = defaultdict(bool)
-traversedpath = bfs(graph,start,visited,path)
-print(traversedpath)
+start = '0'<BR>
+path = []<BR>
+visited = defaultdict(bool)<BR>
+traversedpath = bfs(graph,start,visited,path)<BR>
+print(traversedpath)<BR>
 
 
 
